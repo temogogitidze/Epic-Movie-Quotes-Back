@@ -1,0 +1,27 @@
+paths:
+  /comments:
+    post:
+      tags:
+        - Comments
+      summary: Returns json response with comment and its author
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quote_id:
+                  type: number
+                  example: 1
+                  minLength: 1
+                body:
+                  type: string
+                  example: some comment
+                  minLength: 1
+      responses:
+        "200":
+          $ref: "../responses/comments.yaml#/components/responses/comments/200"
+        "422":
+          $ref: "../common.yaml#/components/responses/422"
+

@@ -1,0 +1,109 @@
+components:
+  responses:
+    login:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: successfully logged in
+
+    auth-google:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: Url for google redirect
+      "404":
+        description: Not found
+        content:
+          application/json:
+            schema:
+              type: string
+              example: error from google
+
+    google:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: Login url for google user
+
+    register:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: user created successfully
+
+    logout:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: successfully logged out
+
+    verify-email:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: email sent
+      404:
+        description: Not found
+        content:
+          application/json:
+            schema:
+              type: string
+              example: user does not exist
+
+    user:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: success
+                user:
+                  allOf:
+                    - $ref: "../common.yaml#/components/schemas/Id"
+                    - type: object
+                      properties:
+                        google_id:
+                          type: string
+                          example: if user logged in with google socialite
+                        username:
+                          type: string
+                          example: Venera Obolashvili,
+                        email:
+                          type: email
+                          example: venera@gmail.com,
+                        token:
+                          type: string
+                          example: user token,
+                        thumbnail:
+                          type: string
+                          example: path of user's thumbnail,
+                        email_verified_at:
+                          type: string
+                          example: time of email verification,
+                    - $ref: "../common.yaml#/components/schemas/TimeStamps"
+                likes:
+                  type: object
+                  example: user's likes
+

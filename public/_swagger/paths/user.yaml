@@ -1,0 +1,25 @@
+paths:
+  /user/update:
+    post:
+      tags:
+        - User Update
+      summary: Returns response status about user's updated information
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: venera1
+                  minLength: 1
+                email:
+                  type: email
+                  example: venera1@gmail.com
+      responses:
+        "200":
+          $ref: "../responses/user.yaml#/components/responses/update-user/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"

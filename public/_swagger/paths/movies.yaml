@@ -1,0 +1,81 @@
+paths:
+  /movies:
+    post:
+      tags:
+        - Movies
+      summary: Returns response status for storing movies
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              allOf:
+                - $ref: "../schemas/movies.yaml#/components/schemas/movies"
+                - type: object
+      responses:
+        "200":
+          $ref: "../responses/movies.yaml#/components/responses/add-movie/200"
+        "422":
+          $ref: "../responses/movies.yaml#/components/responses/add-movie/422"
+
+    get:
+      tags:
+        - Movies
+      summary: Returns json response of movies with associated quotes
+      responses:
+        "200":
+          $ref: "../responses/movies.yaml#/components/responses/get-movies/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"
+
+  /movies/{id}:
+    get:
+      tags:
+        - Movies
+      summary: Returns json response with one movie
+      parameters:
+        - $ref: "../schemas/movies.yaml#/components/parameters/id"
+      responses:
+        "200":
+          $ref: "../responses/movies.yaml#/components/responses/get-movie/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"
+
+    post:
+      tags:
+        - Movies
+      summary: Returns status of updated movie
+      parameters:
+        - $ref: "../schemas/movies.yaml#/components/parameters/id"
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              allOf:
+                - $ref: "../schemas/movies.yaml#/components/schemas/movies"
+                - type: object
+      responses:
+        "200":
+          $ref: "../responses/movies.yaml#/components/responses/update-movie/200"
+        "422":
+          $ref: "../common.yaml#/components/responses/422"
+
+    delete:
+      tags:
+        - Movies
+      summary: Returns response status of deleted movie
+      parameters:
+        - $ref: "../schemas/movies.yaml#/components/parameters/id"
+      responses:
+        "200":
+          $ref: "../responses/movies.yaml#/components/responses/delete-movie/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"
+
+
+
+
+
+
+

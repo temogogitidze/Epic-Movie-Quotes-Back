@@ -1,0 +1,30 @@
+components:
+  schemas:
+    quotes:
+      type: object
+      properties:
+        body_en:
+          type: string
+          example: Fantasies have to be unrealistic because the moment, the second that you get what you seek, you don't, you can't want it anymore
+          minLength: 1
+        body_ka:
+          type: string
+          example: ციტატა ქართულად
+          minLength: 1
+        thumbnail:
+          type: string
+          format: binary
+        movie_id:
+          type: number
+          example: 1
+          minLength: 1
+
+  parameters:
+    id:
+      name: id
+      in: path
+      description: Quote id
+      required: true
+      schema:
+        type: number
+

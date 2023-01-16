@@ -1,0 +1,41 @@
+paths:
+  /like:
+    post:
+      tags:
+        - Likes
+      summary: Returns json response about like state (like or like deleted)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quote_id:
+                  type: number
+                  example: 1
+                  minLength: 1
+                like:
+                  type: boolean
+                  example: true
+      responses:
+        "200":
+          $ref: "../responses/like.yaml#/components/responses/like/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"
+
+  /likes/{id}/likeable:
+    post:
+      tags:
+        - Likes
+      summary: Returns json response about quote, is it likeable or not
+      parameters:
+        - $ref: "../schemas/quotes.yaml#/components/parameters/id"
+      responses:
+        "200":
+          $ref: "../responses/like.yaml#/components/responses/likeable/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"
+
+
+

@@ -1,0 +1,54 @@
+components:
+  responses:
+    add-movie:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: Movie added successfully
+      "422":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: Something went wrong
+
+    get-movies:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: array
+              example: Array with objects of movies
+
+    get-movie:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              example: Object with movie and associated quotes
+
+    update-movie:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              example: success
+
+
+    delete-movie:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              example: Movie deleted successfully

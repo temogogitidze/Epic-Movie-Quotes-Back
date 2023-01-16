@@ -1,0 +1,17 @@
+components:
+  responses:
+    email-token:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: email verified successfully
+      "404":
+        description: No email token
+        content:
+          application/json:
+            schema:
+              type: string
+              example: Email token not present

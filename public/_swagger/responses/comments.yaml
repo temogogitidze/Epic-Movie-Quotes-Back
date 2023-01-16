@@ -1,0 +1,30 @@
+components:
+  responses:
+    comments:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              allOf:
+                - $ref: "../common.yaml#/components/schemas/Id"
+                - $ref: "../common.yaml#/components/schemas/user_id"
+                - type: object
+                  properties:
+                    quote_id:
+                      type: number
+                      example: 1
+                    body:
+                      type: string
+                      example: some comment
+                    username:
+                      type: string
+                      example: Venera Obolashvili,
+                    thumbnail:
+                      type: string
+                      example: path to thumbnail
+                    id:
+                      type: number
+                      example: 1
+                - $ref: "../common.yaml#/components/schemas/TimeStamps"

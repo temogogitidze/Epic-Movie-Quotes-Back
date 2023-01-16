@@ -1,0 +1,61 @@
+openapi: 3.0.0
+info:
+  title: Movie Quotes API
+  description: Routes for Epic Movie Quotes
+  version: 0.1.9
+
+servers:
+  - url: http://127.0.0.1:8000/api
+    description: local server
+  - url: http://producation.app/api
+    description: production server
+
+paths:
+  /register:
+    $ref: "./_swagger/paths/auth.yaml#/paths/~1register"
+  /login:
+    $ref: "./_swagger/paths/auth.yaml#/paths/~1login"
+  /auth/google:
+    $ref: "./_swagger/paths/auth.yaml#/paths/~1auth~1google"
+  /google:
+    $ref: "./_swagger/paths/auth.yaml#/paths/~1google"
+  /logout:
+    $ref: "./_swagger/paths/auth.yaml#/paths/~1logout"
+  /verify-email:
+    $ref: "/_swagger/paths/auth.yaml#/paths/~1verify-email"
+  /user:
+    $ref: "/_swagger/paths/auth.yaml#/paths/~1user"
+  /email/{token}:
+    $ref: "/_swagger/paths/email_verification.yaml#/paths/~1email~1{token}"
+  /secondary-email/{token}:
+    $ref: "/_swagger/paths/email_verification.yaml#/paths/~1secondary-email~1{token}"
+  /add-secondary-email:
+    $ref: "/_swagger/paths/secondary_emails.yaml#/paths/~1add-secondary-email"
+  /secondary-email:
+    $ref: "/_swagger/paths/secondary_emails.yaml#/paths/~1secondary-email"
+  /secondary-emails:
+    $ref: "/_swagger/paths/secondary_emails.yaml#/paths/~1secondary-emails"
+  /secondary-emails/{id}:
+    $ref: "/_swagger/paths/secondary_emails.yaml#/paths/~1secondary-emails~1{id}"
+  /forgot-password:
+    $ref: "/_swagger/paths/forgot_password.yaml#/paths/~1forgot-password"
+  /user-email:
+    $ref: "/_swagger/paths/forgot_password.yaml#/paths/~1user-email"
+  /reset-password/{token}:
+    $ref: "/_swagger/paths/forgot_password.yaml#/paths/~1reset-password~1{token}"
+  /movies:
+    $ref: "/_swagger/paths/movies.yaml#/paths/~1movies"
+  /movies/{id}:
+    $ref: "/_swagger/paths/movies.yaml#/paths/~1movies~1{id}"
+  /quotes:
+    $ref: "/_swagger/paths/quotes.yaml#/paths/~1quotes"
+  /quotes/{id}:
+    $ref: "/_swagger/paths/quotes.yaml#/paths/~1quotes~1{id}"
+  /comments:
+    $ref: "/_swagger/paths/comments.yaml#/paths/~1comments"
+  /like:
+    $ref: "/_swagger/paths/like.yaml#/paths/~1like"
+  /likes/{id}/likeable:
+    $ref: "/_swagger/paths/like.yaml#/paths/~1likes~1{id}~1likeable"
+  /user/update:
+    $ref: "/_swagger/paths/user.yaml#/paths/~1user~1update"

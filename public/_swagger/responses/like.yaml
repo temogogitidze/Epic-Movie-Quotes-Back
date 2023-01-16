@@ -1,0 +1,20 @@
+components:
+  responses:
+    like:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: liked or like deleted
+
+    likeable:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                likeable: true or false

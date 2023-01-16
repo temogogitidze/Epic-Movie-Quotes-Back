@@ -1,0 +1,57 @@
+components:
+  schemas:
+    movies:
+      type: object
+      properties:
+        name_en:
+          type: string
+          example: დევიდ გეილის ცხოვრება
+          minLength: 1
+        name_ka:
+          type: string
+          example: the life of david gale
+          minLength: 1
+        genre_en:
+          type: string
+          example: drama
+          minLength: 1
+        genre_ka:
+          type: string
+          example: დრამა
+          minLength: 1
+        director_en:
+          type: string
+          example: Alan Parker
+          minLength: 1
+        director_ka:
+          type: string
+          example: ალან პარკერი
+          minLength: 1
+        description_en:
+          type: string
+          example: Professor David, who is against capital punishment, finds himself convicted in a similar case.
+          minLength: 1
+        description_ka:
+          type: string
+          example: პროფესორ დეივიდი, რომელიც წინააღმდეგია სიკვდილით დასჯის კანონის, საკუთარ თავს იგივე კანონის მოქმედების ქვეშ აღმოაჩენს
+          minLength: 1
+        budget:
+          type: string
+          example: 38 million
+          minLength: 1
+        release_date:
+          type: string,
+          example: 2003
+          minLength: 1
+        thumbnail:
+          type: string
+          format: binary
+
+  parameters:
+    id:
+      name: id
+      in: path
+      description: Movie id
+      required: true
+      schema:
+        type: number

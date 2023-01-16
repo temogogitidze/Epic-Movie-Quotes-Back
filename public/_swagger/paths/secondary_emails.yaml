@@ -1,0 +1,65 @@
+paths:
+  /add-secondary-email:
+    post:
+      tags:
+        - Secondary Email
+      summary: Returns success if secondary email stored successfully
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "../schemas/secondary_emails.yaml#/components/schemas/secondary-email"
+                - type: object
+      responses:
+        "200":
+          $ref: "../responses/secondary_emails.yaml#/components/responses/add-secondary-email/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"
+
+  /secondary-email:
+    post:
+      tags:
+        - Secondary Email
+      summary: Returns success if secondary email changed to primary successfully
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "../schemas/secondary_emails.yaml#/components/schemas/secondary-email"
+                - type: object
+      responses:
+        "200":
+          $ref: "../responses/secondary_emails.yaml#/components/responses/add-secondary-email/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"
+
+  /secondary-emails:
+    get:
+      tags:
+        - Secondary Email
+      summary: Returns all secondary emails for authorized user
+      responses:
+        "200":
+          $ref: "../responses/secondary_emails.yaml#/components/responses/secondary-emails/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"
+
+  /secondary-emails/{id}:
+    delete:
+      tags:
+        - Secondary Email
+      summary: Returns status for deleted secondary email
+      parameters:
+        - $ref: "../schemas/secondary_emails.yaml#/components/parameters/id"
+      responses:
+        "200":
+          $ref: "../responses/secondary_emails.yaml#/components/responses/secondary-emails-id/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"
+
+
+

@@ -1,0 +1,26 @@
+paths:
+  /email/{token}:
+    post:
+      tags:
+        - Email Verification
+      summary: Returns status of email verification
+      parameters:
+        - $ref: "../schemas/email_verification.yaml#/components/parameters/token"
+      responses:
+        "200":
+          $ref: "../responses/email_verification.yaml#/components/responses/email-token/200"
+        "404":
+          $ref: "../responses/email_verification.yaml#/components/responses/email-token/404"
+
+  /secondary-email/{token}:
+    post:
+      tags:
+        - Email Verification
+      summary: Returns status of secondary email verification
+      parameters:
+        - $ref: "../schemas/email_verification.yaml#/components/parameters/token"
+      responses:
+        "200":
+          $ref: "../responses/email_verification.yaml#/components/responses/email-token/200"
+        "404":
+          $ref: "../responses/email_verification.yaml#/components/responses/email-token/404"

@@ -1,0 +1,42 @@
+components:
+  responses:
+    add-secondary-email:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: success
+
+    secondary-emails:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              allOf:
+                - $ref: "../common.yaml#/components/schemas/Id"
+                - $ref: "../common.yaml#/components/schemas/user_id"
+                - type: object
+                  properties:
+                    email:
+                      type: email
+                      example: venera@gmail.com,
+                    email_verified_at:
+                      type: string
+                      example: time of email verification,
+                - $ref: "../common.yaml#/components/schemas/TimeStamps"
+
+    secondary-emails-id:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: Secondary email deleted
+
+
+

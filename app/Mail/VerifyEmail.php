@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class VerifyEmail extends Mailable
+{
+	use Queueable, SerializesModels;
+
+	/**
+	 * Create a new message instance.
+	 *
+	 * @return void
+	 */
+	public function __construct(public $user)
+	{
+	}
+
+	/**
+	 * Build the message.
+	 *
+	 * @return $this
+	 */
+	public function build()
+	{
+		return $this->view('mail.email-verification')->subject('Please verify your email address');
+	}
+
+	public function user()
+	{
+		return $this->belongsTo('App\User', 'user_id');
+	}
+}

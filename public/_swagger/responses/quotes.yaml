@@ -1,0 +1,56 @@
+components:
+  responses:
+    add-quote:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: Quote added successfully
+      "422":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: string
+              example: Something went wrong
+
+    get-quotes:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: array
+              example: Array with objects of quotes
+
+    get-quote:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              example: Object with quote and associated likes & comments
+
+    update-quote:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              example: success
+
+    delete-quote:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              example: Quote deleted successfully
+
+
+

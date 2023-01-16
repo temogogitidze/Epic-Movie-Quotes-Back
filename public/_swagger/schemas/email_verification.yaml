@@ -1,0 +1,10 @@
+components:
+  parameters:
+    token:
+      name: token
+      in: path
+      description: Randomly generated user's token
+      required: true
+      schema:
+        type: string
+        length: 64

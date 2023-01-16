@@ -1,0 +1,125 @@
+paths:
+  /login:
+    post:
+      tags:
+        - Auth
+      summary: Returns response for login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: email
+                  example: venera@gmail.com
+                  minLength: 1
+                password:
+                  type: password
+                  example: veneravenera1
+                  minLength: 8
+                  maxLength: 15
+      responses:
+        "200":
+          $ref: "../responses/auth.yaml#/components/responses/login/200"
+        "422":
+          $ref: "../common.yaml#/components/responses/422"
+
+  /auth/google:
+    get:
+      tags:
+        - Auth
+      summary: Returns url for google redirection
+      responses:
+        "200":
+          $ref: "../responses/auth.yaml#/components/responses/auth-google/200"
+        "404":
+          $ref: "../responses/auth.yaml#/components/responses/auth-google/404"
+
+  /google:
+    get:
+      tags:
+        - Auth
+      summary: Returns redirection url for google login
+      responses:
+        "200":
+          $ref: "../responses/auth.yaml#/components/responses/google/200"
+        "404":
+          $ref: "../responses/auth.yaml#/components/responses/auth-google/404"
+
+  /register:
+    post:
+      tags:
+        - Auth
+      summary: Returns response for the register
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: Venera Obolashvili
+                  minLength: 3
+                email:
+                  type: email
+                  example: venera@gmail.com
+                  minLength: 1
+                password:
+                  type: password
+                  example: veneravenera1
+                  minLength: 8
+                  maxLength: 15
+      responses:
+        "200":
+          $ref: "../responses/auth.yaml#/components/responses/register/200"
+        "422":
+          $ref: "../common.yaml#/components/responses/422"
+
+  /logout:
+    post:
+      tags:
+        - Auth
+      summary: Returns response for logout
+      responses:
+        "200":
+          $ref: '../responses/auth.yaml#/components/responses/logout/200'
+        "401":
+          $ref: "../common.yaml#/components/responses/401"
+
+  /verify-email:
+    post:
+      tags:
+        - Auth
+      summary: Returns response either verification email is sent to user or not
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: email
+                  example: venera@gmail.com
+                  minLength: 1
+      responses:
+        "200":
+          $ref: '../responses/auth.yaml#/components/responses/verify-email/200'
+        "404":
+          $ref: "../responses/auth.yaml#/components/responses/verify-email/404"
+
+  /user:
+    get:
+      tags:
+        - Auth
+      summary: Returns information about logged in user
+      responses:
+        "200":
+          $ref: "../responses/auth.yaml#/components/responses/user/200"
+        "401":
+          $ref: "../common.yaml#/components/responses/401"
+

@@ -1,0 +1,18 @@
+components:
+  schemas:
+    secondary-email:
+      type: object
+      properties:
+        email:
+          type: email
+          example: venera-secondary@gmail.com
+          minLength: 1
+  parameters:
+    id:
+      name: id
+      in: path
+      description: Id of secondary email
+      required: true
+      schema:
+        type: number
+        minLength: 1

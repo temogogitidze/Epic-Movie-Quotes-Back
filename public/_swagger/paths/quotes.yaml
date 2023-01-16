@@ -1,0 +1,79 @@
+paths:
+  /quotes:
+    post:
+      tags:
+        - Quotes
+      summary: Returns response status for storing quotes
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              allOf:
+                - $ref: "../schemas/quotes.yaml#/components/schemas/quotes"
+                - type: object
+      responses:
+        "200":
+          $ref: "../responses/quotes.yaml#/components/responses/add-quote/200"
+        "422":
+          $ref: "../responses/quotes.yaml#/components/responses/add-quote/422"
+
+    get:
+      tags:
+        - Quotes
+      summary: Returns json response of quotes and associated user, comments and likes
+      responses:
+        "200":
+          $ref: "../responses/quotes.yaml#/components/responses/get-quotes/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"
+
+  /quotes/{id}:
+    get:
+      tags:
+        - Quotes
+      summary: Returns json response with one quote and associated likes and comments
+      parameters:
+        - $ref: "../schemas/quotes.yaml#/components/parameters/id"
+      responses:
+        "200":
+          $ref: "../responses/quotes.yaml#/components/responses/get-quote/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"
+
+    post:
+      tags:
+        - Quotes
+      summary: Returns status of updated quote
+      parameters:
+        - $ref: "../schemas/quotes.yaml#/components/parameters/id"
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              allOf:
+                - $ref: "../schemas/quotes.yaml#/components/schemas/quotes"
+                - type: object
+      responses:
+        "200":
+          $ref: "../responses/quotes.yaml#/components/responses/update-quote/200"
+        "422":
+          $ref: "../common.yaml#/components/responses/422"
+
+    delete:
+      tags:
+        - Quotes
+      summary: Returns response status of deleted quote
+      parameters:
+        - $ref: "../schemas/quotes.yaml#/components/parameters/id"
+      responses:
+        "200":
+          $ref: "../responses/quotes.yaml#/components/responses/delete-quote/200"
+        "404":
+          $ref: "../common.yaml#/components/responses/404"
+
+
+
+
+
